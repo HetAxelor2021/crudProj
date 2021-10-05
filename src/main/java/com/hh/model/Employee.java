@@ -55,7 +55,7 @@ public class Employee {
 	
 	
 	 @JsonbTransient
-	@ManyToMany(mappedBy="employee" , fetch=FetchType.LAZY, cascade= CascadeType.ALL)
+	@ManyToMany(mappedBy="employee" , fetch=FetchType.LAZY, cascade= { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.DETACH})
 	private List<Laptop> laptop = new ArrayList<Laptop>();
 
 	public int getId() {

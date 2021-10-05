@@ -79,16 +79,7 @@ public class HelloResource {
 		try {
 			
 			List<Employee> ls = userService.readMd(em);
-			for(Employee e : ls) {
-				System.out.println(e);
-				System.out.println("ename: "+e.getName());
-				System.out.println("email : "+e.getEmail());
-				for(Laptop l : e.getLaptop()) {
-					System.out.println(l);
-					System.out.println("lid: "+l.getLid());
-					System.out.println("lname: "+l.getLname());
-				}
-			}
+			
 //			HttpSession session = request.getSession();
 //			session.setAttribute("list", ls);
 //			response.("index.jsp");
@@ -124,10 +115,10 @@ public class HelloResource {
 	@Transactional
 	@Path("/updateDb")
 	public void updateDb(@FormParam("eid") int eid,@FormParam("ename") String ename, @FormParam("email") String email, @FormParam("lid") int lid, @FormParam("lname") String lname) {
-		System.out.println("hello update db");
-		System.out.println("eid: "+eid+"ename: "+ename+" email: "+email+" lid: "+lid+" lname: "+lname);
+	
 		Employee emp = userService.updateDb( em, eid, ename,  email, lid, lname);
 		request.setAttribute("employee", emp);
+		request.setAttribute("update", "update-data");
 		request.forward("/success.jsp");
 
 	}

@@ -9,6 +9,7 @@
 <body>
 	<div>
 		<h3>${msg }</h3>
+		<a href="http://localhost:8080/CRUDProj/index.jsp">index page</a>
 	</div>
 </body>
 </html>
